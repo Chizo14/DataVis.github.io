@@ -7,9 +7,15 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - About
+      - href: about.qmd
+        text: About
       - text: EPPS6356
+        menu: 
+          - href: Assignment 1.qmd
+            text: Assignment 1
+          - href: Assignment 2.qmd
+            text: Assignment 2
+          
         
           
 format:
