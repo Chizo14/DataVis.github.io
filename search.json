@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "assignment1.html",
+    "href": "assignment1.html",
+    "title": "Chizoma Oparaji",
+    "section": "",
+    "text": "slides"
+  },
+  {
+    "objectID": "Assignment3.html",
+    "href": "Assignment3.html",
+    "title": "Chizoma Oparaji",
+    "section": "",
+    "text": "slides"
+  },
+  {
+    "objectID": "Assignment2.html",
+    "href": "Assignment2.html",
+    "title": "Chizoma Oparaji",
+    "section": "",
+    "text": "slides"
+  },
+  {
     "objectID": "Assignment4.html",
     "href": "Assignment4.html",
     "title": "Hackathon",
@@ -7,10 +28,17 @@
     "text": "Column Chart\n\n\n# Load necessary libraries if not already loaded\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(ggplot2)\n#load dataset\nroaddeaths <- read.csv(\"Road traffic accidents.csv\")\n# Filter the dataset for the year 2021\nyear_2019_data <- subset(roaddeaths, Year == 2019)\n\n# Calculate the total deaths for all ages and both sexes in 2019\ntotal_deaths_2019 <- year_2019_data %>%\n  filter(Sex == \"All\" & Age.Group == \"[All]\")\n\n# Specify the number of top countries you want (e.g., top 5)\nT <- 5\n# Get the top T countries with the highest road accidents in 2019\ntop_5_countries <- total_deaths_2019 %>%\n  top_n(T, Number)\n#Some calculations for ploting\ntop_5_countries$wc <- cumsum(top_5_countries$Death.rate.per.100.000.population)\ntop_5_countries$sp <-top_5_countries$wc - top_5_countries$Death.rate.per.100.000.population\ntop_5_countries$mp <- with(top_5_countries,sp +(wc-sp)/2)\n# plotting\n\ncustom_colors <- c(\"Brazil\" = \"firebrick\", \"Mexico\" = \"navy\", \n                   \"Russian Federation\" = \"seagreen\", \"Thailand\" = \"chocolate\", \n                   \"United States of America\" = \"orchid\")\nggplot(top_5_countries, aes(ymin= 0)) +\n  geom_rect((aes(xmin = sp, xmax = wc, ymax = Number, fill = Country))) +\n  geom_text(aes(x = mp, y = Number * 0.5, label = c(\"Brazil\", \"Mexico\", \n                                                    \"Russia\", \"Thailand\", \"USA\"))) + \n  theme_bw() + \n  theme(legend.position = \"none\") + \n  labs(\n    title = \"Road Deaths and Death Rates for Countries with the Highest Mortality\",\n    x = \"Death Rate (per 100,000 population)\",\n    y = \"Number of Road Accident Deaths\",\n  ) +\n  scale_fill_manual(values = custom_colors)\n\n\n\n\n\n\nEmbedded Charts\n\n# Load necessary libraries if not already loaded\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(reshape2)\n#load dataset\nroaddeaths <- read.csv(\"Road traffic accidents.csv\")\n# Filter the dataset for the year 2019 $ 2020\nyear_2019_2020_data <- subset(roaddeaths, Year == 2019 | Year == 2020)\n\n# Calculate the total deaths for all ages and both sexes in 2019 $ 2020\nroad_deaths_2019_2020 <- year_2019_2020_data %>%\n  filter(Sex == \"All\" & Age.Group == \"[All]\")\n\n# Specify the number of top countries\nT <- 4\n# Get the top 4 countries with the highest road accident deaths\ntop_countries<- road_deaths_2019_2020 %>%\n  top_n(T,Number )\n\n# Define custom fill colors\ncustom_colors <- c(\"2019\" = \"darkslategrey\", \"2020\" = \"orchid\")\n# Plot\nggplot(top_countries, aes(x = Country, y = Number, fill = as.factor(Year))) +\n  geom_bar(position = \"dodge\", stat = \"identity\") +\n  facet_grid(~ Country, scales = \"free_y\") +\n  theme(axis.text.x = element_blank()) +\n  labs(title = \"Road Accident Deaths\", x = NULL, y = \"Number of Deaths\") +\n  scale_fill_manual(values = custom_colors)\n\n\n\n\n\n\n\nBar Chart\n\n#Load the necessary libraries\nlibrary(ggplot2)\nlibrary(dplyr)\n#load dataset\nroaddeaths <- read.csv(\"Road traffic accidents.csv\")\n# Filter the dataset for the year 2019\nyear_2019_data <- subset(roaddeaths, Year == 2019)\n# Filter the dataset for USA\nusa_2019 <- subset(year_2019_data, Country == \"United States of America\" \n                   & Age.Group != \"[All]\" & Age.Group != \"[Unknown]\")\n\n# Reorder the levels of Age.Group\nusa_2019$Age.Group <- factor(usa_2019$Age.Group, \n                             levels = c(\"[0]\", \"[1-4]\", \"[5-9]\", \"[10-14]\", \"[15-19]\",\n                                        \"[20-24]\", \"[25-29]\", \"[30-34]\", \"[35-39]\",\n                                        \"[40-44]\", \"[45-49]\", \"[50-54]\", \"[55-59]\", \n                                        \"[60-64]\", \"[65-69]\", \"[70-74]\", \"[75-79]\", \n                                        \"[80-84]\", \"[85+]\"))\n\n# Create the bar plot\n\nggplot(usa_2019, aes(x = Number)) +\n  geom_bar(aes(y = Age.Group), position = \"dodge\", stat = \"identity\", fill = \"darkslategrey\") +\n  labs(\n    title = \"Road Accident Deaths in the USA by Age Group (2019)\",\n    x = \"Number of Road Traffic Accidents\",\n    y = \"Age Group\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\nColumn Chart\n\n# Load the necessary libraries\nlibrary(ggplot2)\n#load dataset\nroaddeaths <- read.csv(\"Road traffic accidents.csv\")\n# Filter the dataset for the year 2021\nyear_2019_data <- subset(roaddeaths, Year == 2019)\n# Create a clustered bar chart\n\nggplot(year_2019_data, aes(x = Region)) +\n  geom_col(aes(y = Number, fill = Sex), position = \"dodge\", stat = \"identity\") +\n  scale_fill_manual(values = c(\"Male\" = \"orchid\", \"Female\" = \"chocolate\", \"All\" = \"darkslategrey\")) +\n  labs(\n    title = \"Road Accident Deaths by Gender and Region (2019)\",\n    x = NULL,\n    y = \"Number of Road Traffic Accidents\",\n    fill = \"Gender\"\n  ) +\n  theme_minimal()+\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))\n\nWarning in geom_col(aes(y = Number, fill = Sex), position = \"dodge\", stat =\n\"identity\"): Ignoring unknown parameters: `stat`\n\n\nWarning: Removed 27 rows containing missing values (`geom_col()`)."
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Chizoma Oparaji’s Website",
+    "section": "",
+    "text": "Here you’ll find a collection of my assignments and projects. Feel free to explore and discover my journey in the world of coding and creativity. I’m excited to share my work with you, and I hope you find it both inspiring and informative.\nThanks for visiting, and enjoy your stay!”"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Chizoma Oparaji",
     "section": "",
-    "text": "Welcome to my page!\nMy background is in Cognitive Science/ Neuroscience, with a specialization in Human-Computer Interaction. My interests are in Data Science and UI/UX.\nI’m a current Master Student in research at the University of Texas-Dallas in the Brain and Behavioral Sciences Department.\nI spend most of my free time hanging out with family and friends or somewhere across the globe.\n\nMore Information\nInterests:\n\nHCI\nUI/UX\nData Science\nTraveling\nVlogging\n\n\n\nContact Me\n[Website] (https://chizo14.github.io/(writegithubname)/) ```"
+    "text": "Welcome to my page!\nMy background is in Cognitive Science/ Neuroscience, with a specialization in Human-Computer Interaction. My interests are in Data Science and UI/UX.\nI’m a current Master Student in research at the University of Texas-Dallas in the Brain and Behavioral Sciences Department.\nI spend most of my free time hanging out with family and friends or somewhere across the globe!.\n\nMore Information\nInterests:\n\nHCI\nUI/UX\nData Science\nTraveling\nVlogging\n\n\n\nContact Me\n[Website] (https://chizo14.github.io/(writegithubname)/) ```"
   }
 ]
