@@ -21,6 +21,41 @@
     "text": "slides"
   },
   {
+    "objectID": "Assignment5.html",
+    "href": "Assignment5.html",
+    "title": "Assignment 5",
+    "section": "",
+    "text": "library(graphics)\nApartment_data <- c(1, 3, 4, 3, 7, 2, 8, 9, 5, 10)\n\n# Create a horizontal histogram using barplot\nbarplot(Apartment_data, horiz = TRUE, col = \"pink\",\n        main = \"Horizontal Histogram of Apartment Data\",\n        xlab = \"Rate\", ylab = \"Apartment range\", xlim = c(0, 7))\n\n\n\nlibrary(graphics)\nApartment_data <- c(1, 3, 4, 3, 7, 2, 8, 9, 5, 10)\nhist(Apartment_data, main=\"Histogram of Apartment Data\", \n         xlab=\"Apartment range\", ylab=\"Rate\", xlim=c(0, 10), ylim=c(0, 7),\n         col=\"pink\", border=\"blue\", breaks=5)\n\n\n\nhist(Apartment_data, col =\"pink\" , main= \"Histogram of Apartment Data\", freq= F)\n\n# Add a density line to the histogram\nlines(density(Apartment_data), col=\"green\", lwd=3)"
+  },
+  {
+    "objectID": "Assignment5.html#barchart",
+    "href": "Assignment5.html#barchart",
+    "title": "Assignment 5",
+    "section": "2. Barchart",
+    "text": "2. Barchart\n\nlibrary(graphics)\nApartment_data <- c(1, 3, 4, 3, 7, 2, 8, 9, 5, 10)\n\n# Create a bar chart\nbarplot(Apartment_data, \n        main = \"Bar Chart of Apartment Data\",\n        xlab = \"Apartments\", ylab = \"Rate\",\n        col = \"springgreen1\", border = \"sienna1\")\n\n\n\nlibrary(graphics)\nApartment_data <- c(1, 3, 4, 3, 7, 2, 8, 9, 5, 10)\n\n\n# Create a bar chart\nbarplot(Apartment_data, horiz = TRUE,\n        main = \"Bar Chart of Apartment Data\",\n        xlab = \"Rate\", ylab = \"Apartments\",\n        col = \"springgreen1\", border = \"sienna1\")"
+  },
+  {
+    "objectID": "Assignment5.html#piechart",
+    "href": "Assignment5.html#piechart",
+    "title": "Assignment 5",
+    "section": "3. Piechart",
+    "text": "3. Piechart\n\nlibrary(graphics)\nApartment_data <- c(1, 3, 4, 3, 7, 2, 8, 9, 5, 10)\n\n# Create a pie chart\npie(Apartment_data,\n    main = \"Pie Chart of Apartment Data\",\n    labels = 1:length(Apartment_data),\n    col = rainbow(length(Apartment_data)))"
+  },
+  {
+    "objectID": "Assignment5.html#boxplot",
+    "href": "Assignment5.html#boxplot",
+    "title": "Assignment 5",
+    "section": "4. Boxplot",
+    "text": "4. Boxplot\n\n# Create a box plot\nboxplot(Apartment_data,\n        main = \"Box Plot of Apartment Data\",\n        ylab = \"Rate\",\n        col = \"pink\", border = \"blue\")"
+  },
+  {
+    "objectID": "Assignment5.html#scatterplot",
+    "href": "Assignment5.html#scatterplot",
+    "title": "Assignment 5",
+    "section": "5. Scatterplot",
+    "text": "5. Scatterplot\n\n# Rainfall data\nx <- c(1, 2, 3, 4, 5)\ny <- c(2, 3, 5, 4, 6)\n\n# Create a scatterplot\nplot(x, y, \n     main = \"Rainfall data over a 6 day period\",          # Title of the plot\n     xlab = \"Days\",                 # Label for the X-axis\n     ylab = \"Rainfall inches\",                 # Label for the Y-axis\n     pch = 19,                              # Point character (you can change this)\n     col = \"blue\",                          # Point color\n     xlim = c(0, 6),                        # X-axis limits\n     ylim = c(0, 7)                         # Y-axis limits\n)\n\n\n\n\n\n# Load the ggplot2 library\nlibrary(ggplot2)\n\n# Sample data\ndata <- data.frame(\n  x = c(1, 2, 3, 4, 5),\n  y = c(2, 3, 5, 4, 6)\n)\n\n# Create a scatterplot using ggplot2\nggplot(data, aes(x = x, y = y)) +\n  geom_point(shape = 14, color = \"red\") +\n  labs(\n    title = \"Rainfall Data\",\n    x = \"Days\",\n    y = \"inches\"\n  ) +\n  xlim(0, 6) +\n  ylim(0, 7)"
+  },
+  {
     "objectID": "Assignment4.html",
     "href": "Assignment4.html",
     "title": "Hackathon",
