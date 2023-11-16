@@ -179,15 +179,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  <span class="dropdown-text">Assignment 6</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Assignment7.qmd">
+    <a class="dropdown-item" href="./Assignment7.html">
  <span class="dropdown-text">Assignment 7</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Assignment8.qmd">
+    <a class="dropdown-item" href="./Assignment8.html">
  <span class="dropdown-text">Assignment 8</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Assignment9.qmd">
+    <a class="dropdown-item" href="./Assignment9.html">
  <span class="dropdown-text">Assignment 9</span></a>
   </li>  
         <li>
@@ -297,6 +297,8 @@ in your R script or .Rprofile.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create another map using 2009 and 2020 data and do comparison?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="map-data" class="level2">
+<h2 class="anchored" data-anchor-id="map-data">2019 Map Data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a list of American Community Survey (ACS) 2009 variables</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>acs09 <span class="ot">=</span> tidycensus<span class="sc">::</span><span class="fu">load_variables</span>(<span class="dv">2009</span>, <span class="st">"acs5"</span>, <span class="at">cache =</span> <span class="cn">TRUE</span>)</span>
@@ -334,6 +336,9 @@ in your R script or .Rprofile.</code></pre>
 <p><img src="Assignment10_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="map-data-1" class="level2">
+<h2 class="anchored" data-anchor-id="map-data-1">2016 Map Data</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a list of American Community Survey (ACS) 2016 variables</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>acs16 <span class="ot">=</span> tidycensus<span class="sc">::</span><span class="fu">load_variables</span>(<span class="dv">2016</span>, <span class="st">"acs5"</span>, <span class="at">cache =</span> <span class="cn">TRUE</span>)</span>
@@ -371,6 +376,16 @@ in your R script or .Rprofile.</code></pre>
 <p><img src="Assignment10_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section>
+<section id="map-data-2" class="level2">
+<h2 class="anchored" data-anchor-id="map-data-2">*2020 Map data</h2>
+<p>cannot get 2020 data due to covid-19 pandemic</p>
+<pre><code></code></pre>
+</section>
+</section>
+<section id="comparison-between-2009-and-2016-map-data" class="level1">
+<h1>Comparison between 2009 and 2016 Map Data</h1>
+<p>There was a decline in 2016 for the median age.</p>
 
 
 </section>
