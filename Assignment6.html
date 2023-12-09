@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -227,47 +164,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="shiny-app" class="level2">
-<h2 class="anchored" data-anchor-id="shiny-app">Shiny App</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Introduction to R Shiny sample program 1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## file: introShiny01.R</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Adapted from Beeley, Chris and Shitalkumar R. Sukhdeve, 2018. Web application development </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## with R using Shiny (3rd ed.) Packt Publishing Ltd.</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Also, https://shiny.rstudio.com</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Packages:  shiny</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Formatting page using tags</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(<span class="st">"shiny"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: shiny</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># First component: User interface (ui)</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span> (</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">h1</span>(<span class="st">"Data Visualization App"</span>), </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">img</span>(<span class="at">src =</span> <span class="st">"https://karlho.com/img/KarlHoPic100.png"</span>),</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>   <span class="co"># tags$hr(),</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>   <span class="co"># tags$br(),</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">h1</span>(<span class="fu">strong</span>(<span class="st">"Karl Ho"</span>)),</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">p</span>(<span class="fu">em</span>(<span class="st">"School of Economic, Political and Policy Sciences"</span>)),</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">a</span>(<span class="fu">em</span>(<span class="at">href=</span><span class="st">"https://utdallas.edu"</span>, <span class="st">"University of Texas at Dallas"</span>)),</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">a</span>(<span class="at">href=</span><span class="st">"https://karlho.com"</span>, <span class="st">"Karl Ho website"</span>))</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Second component: server</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input , output){} </span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Calling the shinyapp</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui , <span class="at">server =</span> server)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p></p><div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div><p></p>
-</div>
-</div>
+<section id="shiny-app" class="level1">
+<h1>Shiny App</h1>
+<pre class="{library(shiny)}"><code>library(readr)
+library(ggplot2)
+library(dplyr)
+
+# Read the datasets
+mtcars &lt;- read_csv("https://raw.githubusercontent.com/Chizo14/DataVis.github.io/main/mtcars.csv")
+USArrests &lt;- read_csv("https://raw.githubusercontent.com/Chizo14/DataVis.github.io/main/USArrests.csv")
+uspop &lt;- read_csv("https://raw.githubusercontent.com/Chizo14/DataVis.github.io/main/USArrests.csv")
+womanservices &lt;- read_csv("https://raw.githubusercontent.com/Chizo14/DataVis.github.io/main/womanservices.csv")
 
 
+ui &lt;- fluidPage(
+  titlePanel("Chizoma Oparaji's Shiny App with Datasets"),
+  
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("dataset", "Choose a Dataset", choices = c("mtcars", "USArrests", "uspop", "womanservices"))
+    ),
+    
+    mainPanel(
+      tabsetPanel(
+        tabPanel("Summary", verbatimTextOutput("summary")),
+        tabPanel("Visualization", plotOutput("visualization"))
+      )
+    )
+  )
+)
+
+
+server &lt;- function(input, output) {
+  selected_dataset &lt;- reactive({
+    switch(input$dataset,
+           "mtcars" = mtcars,
+           "USArrests" = USArrests,
+           "uspop" = uspop,
+           "womanservices" = womanservices)
+  })
+  
+  output$summary &lt;- renderPrint({
+    summary(selected_dataset())
+  })
+  
+  output$visualization &lt;- renderPlot({
+    dataset &lt;- selected_dataset()
+    
+    # Visualize data based on the selected dataset
+    if (input$dataset == "mtcars") {
+      ggplot(dataset, aes(x = mpg, y = disp)) +
+        geom_point() +
+        labs(title = "Scatter Plot of MPG vs. Displacement",
+             x = "Miles Per Gallon",
+             y = "Displacement")
+    } else if (input$dataset == "USArrests") {
+      ggplot(dataset, aes(x = Murder, y = Assault, color = UrbanPop)) +
+        geom_point() +
+        labs(title = "Scatter Plot of Murder vs. Assault",
+             x = "Murder Rate",
+             y = "Assault Rate",
+             color = "Urban Population")
+    } else if (input$dataset == "uspop") {
+      ggplot(dataset, aes(x = Year, y = as.numeric(Population))) +
+        geom_line() +
+        labs(title = "Population Growth Over Time",
+             x = "Year",
+             y = "Population")
+    } else if (input$dataset == "womanservices") {
+      ggplot(dataset, aes(x = `Health Staff (per 1,000 people)`, y = as.numeric(`Health Services % of GDP`))) +
+        geom_point() +
+        labs(title = "Relationship Between Health Staff and Health Services % of GDP",
+             x = "Health Staff (per 1,000 people)",
+             y = "Health Services % of GDP")
+    }
+  })
+}
+
+# Run the app
+shinyApp(ui, server) "https://chizo14.shinyapps.io/DatavisApp/"
+</code></pre>
+<section id="comparing-edward-tufte-and-nathan-yau" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-edward-tufte-and-nathan-yau">Comparing Edward Tufte and Nathan Yau</h2>
+<p>Nathan Yau’s book, “Visualize This: The Flowing Data Guide to Design, Visualization, and Statistics,” takes a practical approach to teaching data visualization. Yau focuses on providing guidance for using various tools and techniques, aiming to equip readers with the skills to create compelling visualizations for real-world applications. The book is accessible and offers practical insights into design and statistics within the context of data visualization.</p>
+<p>On the other hand, Edward R. Tufte’s “The Visual Display of Quantitative Information” is a classic that explores the theoretical and foundational principles of data visualization. Tufte, a pioneer in the field, emphasizes broader design and communication aspects for conveying complex data. While less focused on specific tools, Tufte’s work serves as a fundamental resource for understanding the underlying principles that govern effective data presentation.</p>
+
+
+</section>
 </section>
 
 </main> <!-- /main -->
