@@ -1,5 +1,82 @@
 [
   {
+    "objectID": "Assignment7.html",
+    "href": "Assignment7.html",
+    "title": "Assignment 7",
+    "section": "",
+    "text": "Hackathon\nslides"
+  },
+  {
+    "objectID": "Finalpaper.html",
+    "href": "Finalpaper.html",
+    "title": "Finalpaper.qmd",
+    "section": "",
+    "text": "Prescription Drug Pricing in the United States:\n\n\nAnalyzing the Concrete and Abstract\n\nAbigail Burns, Sharon Jepkosgei, Chizoma Oparaji, Jannelle Marie Navales"
+  },
+  {
+    "objectID": "Assignment9.html",
+    "href": "Assignment9.html",
+    "title": "Assignment 9",
+    "section": "",
+    "text": "Time Series Data\n\nlibrary(quantmod)\n\nLoading required package: xts\n\n\nLoading required package: zoo\n\n\n\nAttaching package: 'zoo'\n\n\nThe following objects are masked from 'package:base':\n\n    as.Date, as.Date.numeric\n\n\nLoading required package: TTR\n\n\nRegistered S3 method overwritten by 'quantmod':\n  method            from\n  as.zoo.data.frame zoo \n\nquantmod::getSymbols(\"AAPL\", src=\"yahoo\")\n\n[1] \"AAPL\"\n\nchartSeries(AAPL)\n\n\n\nchartSeries(AAPL, type = c(\"auto\", \"candlesticks\", \"matchsticks\", \"bars\",\"line\"), subset='last 4 months',theme = \"white\")\n\n\n\nbarChart(AAPL,multi.col=TRUE,theme = 'white')\n\n\n\nlineChart(AAPL,line.type = 'l', theme = 'white') # line, choices include l, h, c, b\n\n\n\nlineChart(AAPL,line.type = 'h',theme = chartTheme('white', up.col='steelblue')) # histogram\n\n\n\ncandleChart(AAPL,subset = \"2020-11/2021-01\", multi.col=TRUE,theme = chartTheme('white'))\n\n\n\n## grey => Open[t] < Close[t] and Op[t] < Cl[t-1]\n## white => Op[t] < Cl[t] and Op[t] > Cl[t-1]\n## red => Op[t] > Cl[t] and Op[t] < Cl[t-1]\n## black => Op[t] > Cl[t] and Op[t] > Cl[t-1]\n\n\n\nGenerate time series chart using TSstudio and Dygraphs- Apple\n\nlibrary(TSstudio)\nquantmod::getSymbols(\"AAPL\", src=\"yahoo\")\n\n[1] \"AAPL\"\n\nclass(AAPL)\n\n[1] \"xts\" \"zoo\"\n\nts_plot(AAPL$AAPL.Adjusted, \n        title = \"Apple Stock prices\",\n        Ytitle = \"\")\n\n\n\n\nclass(AAPL) # What class is this object? The class is ZOO\n\n[1] \"xts\" \"zoo\"\n\n# Some sample dataset from TSstudio\nts_seasonal(USgas, type = \"\") # month-year matrix data\n\nWarning in ts_seasonal(USgas, type = \"\"): The 'type' parameter is invalide,using\nthe default option - 'normal'\n\n\n\n\n\n# What class is USgas? The class is TS\n\n# Sample charts\nts_heatmap(USgas)\n\n\n\n\nts_cor(USgas) # ACF and PACF\n\n\n\n\nts_lags(USgas, margin = .01)\n\n\n\n\nusgas=data.frame(USgas)\n\n\nlibrary(dygraphs)\npar(family=\"Palatino\")\nquantmod::getSymbols(\"AAPL\", src=\"yahoo\")\n\n[1] \"AAPL\"\n\nclass(AAPL)\n\n[1] \"xts\" \"zoo\"\n\nm = tail(AAPL, n=30)\nm =m[,1:(ncol(m)-2)] # drop last two columns \nnames(m)<-c('Open', 'High', 'Low', 'Close') # rename columns for plotting\npath <- getwd()"
+  },
+  {
+    "objectID": "Assignment8.html",
+    "href": "Assignment8.html",
+    "title": "Assignment 8",
+    "section": "",
+    "text": "Planning for Project and Dashboard with group\nPackages that will be used: Plotly, ggplot2\nFramework: Time Series, GIS"
+  },
+  {
+    "objectID": "Assignment5.html",
+    "href": "Assignment5.html",
+    "title": "Assignment 5",
+    "section": "",
+    "text": "library(graphics)\nApartment_data <- c(1, 3, 4, 3, 7, 2, 8, 9, 5, 10)\n\n# Create a horizontal histogram using barplot\nbarplot(Apartment_data, horiz = TRUE, col = \"pink\",\n        main = \"Horizontal Histogram of Apartment Data\",\n        xlab = \"Rate\", ylab = \"Apartment range\", xlim = c(0, 7))\n\n\n\nlibrary(graphics)\nApartment_data <- c(1, 3, 4, 3, 7, 2, 8, 9, 5, 10)\nhist(Apartment_data, main=\"Histogram of Apartment Data\", \n         xlab=\"Apartment range\", ylab=\"Rate\", xlim=c(0, 10), ylim=c(0, 7),\n         col=\"pink\", border=\"blue\", breaks=5)\n\n\n\nhist(Apartment_data, col =\"pink\" , main= \"Histogram of Apartment Data\", freq= F)\n\n# Add a density line to the histogram\nlines(density(Apartment_data), col=\"green\", lwd=3)"
+  },
+  {
+    "objectID": "Assignment5.html#barchart",
+    "href": "Assignment5.html#barchart",
+    "title": "Assignment 5",
+    "section": "2. Barchart",
+    "text": "2. Barchart\n\nlibrary(graphics)\nApartment_data <- c(1, 3, 4, 3, 7, 2, 8, 9, 5, 10)\n\n# Create a bar chart\nbarplot(Apartment_data, \n        main = \"Bar Chart of Apartment Data\",\n        xlab = \"Apartments\", ylab = \"Rate\",\n        col = \"springgreen1\", border = \"sienna1\")\n\n\n\nlibrary(graphics)\nApartment_data <- c(1, 3, 4, 3, 7, 2, 8, 9, 5, 10)\n\n\n# Create a bar chart\nbarplot(Apartment_data, horiz = TRUE,\n        main = \"Bar Chart of Apartment Data\",\n        xlab = \"Rate\", ylab = \"Apartments\",\n        col = \"springgreen1\", border = \"sienna1\")"
+  },
+  {
+    "objectID": "Assignment5.html#piechart",
+    "href": "Assignment5.html#piechart",
+    "title": "Assignment 5",
+    "section": "3. Piechart",
+    "text": "3. Piechart\n\nlibrary(graphics)\nApartment_data <- c(1, 3, 4, 3, 7, 2, 8, 9, 5, 10)\n\n# Create a pie chart\npie(Apartment_data,\n    main = \"Pie Chart of Apartment Data\",\n    labels = 1:length(Apartment_data),\n    col = rainbow(length(Apartment_data)))"
+  },
+  {
+    "objectID": "Assignment5.html#boxplot",
+    "href": "Assignment5.html#boxplot",
+    "title": "Assignment 5",
+    "section": "4. Boxplot",
+    "text": "4. Boxplot\n\n# Create a box plot\nboxplot(Apartment_data,\n        main = \"Box Plot of Apartment Data\",\n        ylab = \"Rate\",\n        col = \"pink\", border = \"blue\")"
+  },
+  {
+    "objectID": "Assignment5.html#scatterplot",
+    "href": "Assignment5.html#scatterplot",
+    "title": "Assignment 5",
+    "section": "5. Scatterplot",
+    "text": "5. Scatterplot\n\n# Rainfall data\nx <- c(1, 2, 3, 4, 5)\ny <- c(2, 3, 5, 4, 6)\n\n# Create a scatterplot\nplot(x, y, \n     main = \"Rainfall data over a 6 day period\",          # Title of the plot\n     xlab = \"Days\",                 # Label for the X-axis\n     ylab = \"Rainfall inches\",                 # Label for the Y-axis\n     pch = 19,                              # Point character (you can change this)\n     col = \"blue\",                          # Point color\n     xlim = c(0, 6),                        # X-axis limits\n     ylim = c(0, 7)                         # Y-axis limits\n)\n\n\n\n\n\n# Load the ggplot2 library\nlibrary(ggplot2)\n\n# Sample data\ndata <- data.frame(\n  x = c(1, 2, 3, 4, 5),\n  y = c(2, 3, 5, 4, 6)\n)\n\n# Create a scatterplot using ggplot2\nggplot(data, aes(x = x, y = y)) +\n  geom_point(shape = 14, color = \"red\") +\n  labs(\n    title = \"Rainfall Data\",\n    x = \"Days\",\n    y = \"inches\"\n  ) +\n  xlim(0, 6) +\n  ylim(0, 7)"
+  },
+  {
+    "objectID": "Assignment5.html#the-parable-of-google-flu-traps-in-big-data-analysis",
+    "href": "Assignment5.html#the-parable-of-google-flu-traps-in-big-data-analysis",
+    "title": "Assignment 5",
+    "section": "The Parable of Google Flu: Traps in Big Data Analysis",
+    "text": "The Parable of Google Flu: Traps in Big Data Analysis\nThe Parable of Google Flu: Traps in Big Data Analysis\nIn the paper “Enormous Information Hubris and Calculation Elements: The Case of Google Flu Patterns,” the creators analyze the pitfalls of enormous information analytics, with a center on Google Flu Patterns (GFT). GFT broadly anticipated a 50% increment in specialist visits for influenza-like sickness compared to the CDC, which depends on observation reports from labs over the Joined together States. In spite of Google’s notoriety for modern information investigation, it made a basic mistake that sheds light on key challenges in huge information analytics. 1. Enormous Information Hubris and Calculation Elements: One of the essential variables contributing to GFT’s blunder was the concept of “Enormous Information Hubris.” This alludes to the overconfidence within the prescient control of huge datasets. GFT depended intensely on tremendous sums of look inquiry information, accepting that more information would intrinsically lead to way better expectations. Be that as it may, this suspicion proved to be imperfect because it overlooked the complexities of the real-world data. 2.  Overfitting: Overfitting was a critical issue for GFT. This happens when a show gets to be as well closely tailored to the preparing information, capturing commotion instead of significant designs. GFT’s overreliance on huge information driven to the overfitting of a moderately little number of flu cases. To moderate this issue, GFT designers endeavored to channel out insignificant flu-related look terms. This endeavor to fine-tune the show brought about in a as far as anyone knows made strides form of GFT. Be that as it may, it did not completely address the overfitting problem. 3. Need of Parameterization: Another issue was the disappointment to suitably parameterize the show. GFT’s calculation elements were not successfully balanced to adjust to changing conditions and account for the slack between information collection and announcing. Thus, the slacked CDC models proceeded to outflank GFT in flu prediction. This attempt to fine-tune the model resulted in a supposedly improved version of the GFT. However, this did not completely solve the over-installation problem."
+  },
+  {
+    "objectID": "Assignment4.html",
+    "href": "Assignment4.html",
+    "title": "Hackathon",
+    "section": "",
+    "text": "Column Chart\n\n\n# Load necessary libraries if not already loaded\nlibrary(dplyr)\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(ggplot2)\n#load dataset\nroaddeaths <- read.csv(\"Road traffic accidents.csv\")\n# Filter the dataset for the year 2021\nyear_2019_data <- subset(roaddeaths, Year == 2019)\n\n# Calculate the total deaths for all ages and both sexes in 2019\ntotal_deaths_2019 <- year_2019_data %>%\n  filter(Sex == \"All\" & Age.Group == \"[All]\")\n\n# Specify the number of top countries you want (e.g., top 5)\nT <- 5\n# Get the top T countries with the highest road accidents in 2019\ntop_5_countries <- total_deaths_2019 %>%\n  top_n(T, Number)\n#Some calculations for ploting\ntop_5_countries$wc <- cumsum(top_5_countries$Death.rate.per.100.000.population)\ntop_5_countries$sp <-top_5_countries$wc - top_5_countries$Death.rate.per.100.000.population\ntop_5_countries$mp <- with(top_5_countries,sp +(wc-sp)/2)\n# plotting\n\ncustom_colors <- c(\"Brazil\" = \"firebrick\", \"Mexico\" = \"navy\", \n                   \"Russian Federation\" = \"seagreen\", \"Thailand\" = \"chocolate\", \n                   \"United States of America\" = \"orchid\")\nggplot(top_5_countries, aes(ymin= 0)) +\n  geom_rect((aes(xmin = sp, xmax = wc, ymax = Number, fill = Country))) +\n  geom_text(aes(x = mp, y = Number * 0.5, label = c(\"Brazil\", \"Mexico\", \n                                                    \"Russia\", \"Thailand\", \"USA\"))) + \n  theme_bw() + \n  theme(legend.position = \"none\") + \n  labs(\n    title = \"Road Deaths and Death Rates for Countries with the Highest Mortality\",\n    x = \"Death Rate (per 100,000 population)\",\n    y = \"Number of Road Accident Deaths\",\n  ) +\n  scale_fill_manual(values = custom_colors)\n\n\n\n\n\n\nEmbedded Charts\n\n# Load necessary libraries if not already loaded\nlibrary(dplyr)\nlibrary(ggplot2)\nlibrary(reshape2)\n#load dataset\nroaddeaths <- read.csv(\"Road traffic accidents.csv\")\n# Filter the dataset for the year 2019 $ 2020\nyear_2019_2020_data <- subset(roaddeaths, Year == 2019 | Year == 2020)\n\n# Calculate the total deaths for all ages and both sexes in 2019 $ 2020\nroad_deaths_2019_2020 <- year_2019_2020_data %>%\n  filter(Sex == \"All\" & Age.Group == \"[All]\")\n\n# Specify the number of top countries\nT <- 4\n# Get the top 4 countries with the highest road accident deaths\ntop_countries<- road_deaths_2019_2020 %>%\n  top_n(T,Number )\n\n# Define custom fill colors\ncustom_colors <- c(\"2019\" = \"darkslategrey\", \"2020\" = \"orchid\")\n# Plot\nggplot(top_countries, aes(x = Country, y = Number, fill = as.factor(Year))) +\n  geom_bar(position = \"dodge\", stat = \"identity\") +\n  facet_grid(~ Country, scales = \"free_y\") +\n  theme(axis.text.x = element_blank()) +\n  labs(title = \"Road Accident Deaths\", x = NULL, y = \"Number of Deaths\") +\n  scale_fill_manual(values = custom_colors)\n\n\n\n\n\n\n\nBar Chart\n\n#Load the necessary libraries\nlibrary(ggplot2)\nlibrary(dplyr)\n#load dataset\nroaddeaths <- read.csv(\"Road traffic accidents.csv\")\n# Filter the dataset for the year 2019\nyear_2019_data <- subset(roaddeaths, Year == 2019)\n# Filter the dataset for USA\nusa_2019 <- subset(year_2019_data, Country == \"United States of America\" \n                   & Age.Group != \"[All]\" & Age.Group != \"[Unknown]\")\n\n# Reorder the levels of Age.Group\nusa_2019$Age.Group <- factor(usa_2019$Age.Group, \n                             levels = c(\"[0]\", \"[1-4]\", \"[5-9]\", \"[10-14]\", \"[15-19]\",\n                                        \"[20-24]\", \"[25-29]\", \"[30-34]\", \"[35-39]\",\n                                        \"[40-44]\", \"[45-49]\", \"[50-54]\", \"[55-59]\", \n                                        \"[60-64]\", \"[65-69]\", \"[70-74]\", \"[75-79]\", \n                                        \"[80-84]\", \"[85+]\"))\n\n# Create the bar plot\n\nggplot(usa_2019, aes(x = Number)) +\n  geom_bar(aes(y = Age.Group), position = \"dodge\", stat = \"identity\", fill = \"darkslategrey\") +\n  labs(\n    title = \"Road Accident Deaths in the USA by Age Group (2019)\",\n    x = \"Number of Road Traffic Accidents\",\n    y = \"Age Group\"\n  ) +\n  theme_minimal()\n\n\n\n\n\n\n\nColumn Chart\n\n# Load the necessary libraries\nlibrary(ggplot2)\n#load dataset\nroaddeaths <- read.csv(\"Road traffic accidents.csv\")\n# Filter the dataset for the year 2021\nyear_2019_data <- subset(roaddeaths, Year == 2019)\n# Create a clustered bar chart\n\nggplot(year_2019_data, aes(x = Region)) +\n  geom_col(aes(y = Number, fill = Sex), position = \"dodge\", stat = \"identity\") +\n  scale_fill_manual(values = c(\"Male\" = \"orchid\", \"Female\" = \"chocolate\", \"All\" = \"darkslategrey\")) +\n  labs(\n    title = \"Road Accident Deaths by Gender and Region (2019)\",\n    x = NULL,\n    y = \"Number of Road Traffic Accidents\",\n    fill = \"Gender\"\n  ) +\n  theme_minimal()+\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))\n\nWarning in geom_col(aes(y = Number, fill = Sex), position = \"dodge\", stat =\n\"identity\"): Ignoring unknown parameters: `stat`\n\n\nWarning: Removed 27 rows containing missing values (`geom_col()`)."
+  },
+  {
     "objectID": "Assignment10.html#map-data",
     "href": "Assignment10.html#map-data",
     "title": "Assignment 10",
